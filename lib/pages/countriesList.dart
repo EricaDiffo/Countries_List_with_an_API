@@ -125,7 +125,7 @@ class _CountrieslistState extends State<Countrieslist> {
                           if (currentPage > 0)
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color.fromARGB(255, 58, 59, 59),
+                                backgroundColor: const Color.fromARGB(255, 58, 59, 59),
                               ),
                               onPressed: previousPage,
                               child: const Text('Previous', style: TextStyle(color: Colors.white),),
@@ -136,7 +136,7 @@ class _CountrieslistState extends State<Countrieslist> {
                                 backgroundColor: Colors.blueAccent,
                               ),
                               onPressed: nextPage,
-                              child: const Text('Next', style: TextStyle(color: Colors.white),),
+                              child: const Text('Next Page', style: TextStyle(color: Colors.white),),
                             ),
                         ]
                       )    
