@@ -74,17 +74,15 @@ class _CountrieslistState extends State<Countrieslist> {
                   return Center(child: Text('No countries found'));
                 } else {
                   List<Country> countries = snapshot.data!;
-                  List<Country> filteredCountries = countries.where((country) {
-                    //filtrage des pays
+                  List<Country> filteredCountries = countries.where((country) {  //filtrage des pays
                     return country.name.toLowerCase().contains(search);
                   }).toList();
                   filteredCountries.sort((a, b) => a.name.compareTo(b.name));
 
                   int start = currentPage * countriesPerPage; //calcule le 1 index pour la pageActuel
-                  int end = start + countriesPerPage;
-                  end = end > filteredCountries.length  //s'assurer de ne pas depasser la taille de la liste
-                      ? filteredCountries.length
-                      : end;
+                  int end = start + countriesPerPage; //calcule du derniere index pour la pageActuelle
+                  end = end > filteredCountries.length ? filteredCountries.length :end ;  //s'assurer de ne pas depasser la taille de la liste
+
                   List<Country> numberOfCountries =          //sousliste des pays a afficher
                       filteredCountries.sublist(start, end);
                   return Column(

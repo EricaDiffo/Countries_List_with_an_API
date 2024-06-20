@@ -7,7 +7,11 @@ Future<List<Country>> fetchCountry() async {
 
   if (response.statusCode == 200) {
     List jsonResponse = json.decode(response.body);
-    return jsonResponse.map((country) => Country.fromJson(country)).toList();
+    //return jsonResponse.map((country) => Country.fromJson(country)).toList();
+    return jsonResponse.map((country) {
+      var value = Country.fromJson(country);
+      return value;
+    }).toList();
   } else {
     throw Exception('Failed to load countries'); 
   }
